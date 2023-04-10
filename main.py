@@ -1,30 +1,49 @@
 import subprocess
 import json
 from src.interpretacao import Interpretacao
+from idiomas.en import Ingles 
 
 class AssistenteVirtual:
-    def __init__(self, arquivo_json):
-        self.interpretacao = Interpretacao(arquivo_json)
+    
+    def __init__(self, idioma):
+        if idioma == 'en':
+            self.idioma = 'en'
+            self.tradutor = Ingles()
+            self.arquivo_json = r'vocabulario\commands_en.json'
+            
+        elif idioma == 'pt':
+            self.idioma = 'pt'
+            # self.tradutor = Portugues()
+            self.arquivo_json = r'vocabulario\commands_pt.json'
+        else:
+            raise ValueError("Idioma não suportado.")
+            
+        self.interpretacao = Interpretacao(self.arquivo_json)
 
     def iniciar(self):
-        print("Olá! Sou a Assistente Virtual. Posso te ajudar?")
+        print(self.tradutor.traduzir("Olá! Sou a Assistente Virtual. Posso te ajudar?"))
         while True:
-            resposta = input("Digite 'sim' para começar ou 'nao' para sair: ")
-            if resposta.lower() == 'sim':
-                comando = input("Fale o seu comando: ")
+            resposta = input(self.tradutor.traduzir("Digite 'sim' para começar ou 'nao' para sair: "))
+            if resposta.lower() in ['sim', 'yes']:  
+                comando = input(self.tradutor.traduzir("Fale o seu comando: "))
                 resposta = self.interpretacao.interpretar_comando(comando)
-                print(resposta)
+                print(self.tradutor.traduzir(resposta))
                 comando_info = self.interpretacao.get_comando_info(comando)
                 if comando_info and 'acao' in comando_info:
                     acao = comando_info['acao']
-                    subprocess.run(["python", acao]) # Executa o arquivo especificado na chave 'acao' do JSON
+                    subprocess.run(["python", acao]) 
             else:
-                print("Até mais!")
+                print(self.tradutor.traduzir("Até mais!"))
                 break
 
-# Arquivo JSON com os comandos
-arquivo_json = 'comandos.json'
+# Solicitar ao usuário que escolha o idioma
+while True:
+    idioma = input("Escolha o idioma (en/pt): ")
+    if idioma in ['en', 'pt']:
+        break
+    else:
+        print("Idioma inválido. Por favor, escolha 'en' para inglês ou 'pt' para português.")
 
-# Instanciando a Assistente Virtual e iniciando a interação
-assistente = AssistenteVirtual(arquivo_json)
+# Instanciar a Assistente Virtual com o idioma escolhido e iniciar a interação
+assistente = AssistenteVirtual(idioma)
 assistente.iniciar()

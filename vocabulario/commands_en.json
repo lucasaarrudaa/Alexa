@@ -1,0 +1,14 @@
+{
+    "comandos": [
+        {
+            "comando": "start cleaning",
+            "resposta": "Ok, I'll start cleaning.",
+            "acao": "utils/limpeza.py"
+        },
+        {
+            "comando": "Check rooms",
+            "resposta": "Ok, I'll check, the available rooms, a moment.",
+            "acao": "utils/verificar_quarto.py"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "comandos": [
+      {
+        "comando": "iniciar limpeza",
+        "resposta": "Ok, vou iniciar a limpeza.",
+        "acao": "comandos/limpeza.py"
+      },
+      {
+        "comando": "verifique quartos",
+        "resposta": "Ok, vou verificar, os quartos disponíveis, só um momento.",
+        "acao": "comandos/verificar_quarto.py"
+      }
+    ]
+  }
+  

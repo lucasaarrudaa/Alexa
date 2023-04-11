@@ -6,7 +6,7 @@ from idiomas.en import Ingles
 class AssistenteVirtual:
     
     def __init__(self, idioma):
-        if idioma == 'en':
+        if idioma == 'en': 
             self.idioma = 'en'
             self.tradutor = Ingles()
             self.arquivo_json = r'vocabulario\commands_en.json'

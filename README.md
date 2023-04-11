@@ -2,7 +2,7 @@
 O projeto Alexa é um assistente de voz em Python que permite aos usuários interagirem com o sistema usando comandos de voz. 
 
 - Ele é composto pelos seguintes arquivos e diretórios:
-  - main.py: O arquivo principal do projeto, que contém a lógica principal do assistente de voz.
+  - ```main.py```: O arquivo principal do projeto, que contém a lógica principal do assistente de voz.
   - utils/: Um diretório que contém utilitários e funções auxiliares para o projeto.
     - conexao_db.py: Um arquivo que contém funções relacionadas à conexão com um banco de dados (caso aplicável).
     - limpeza.py: Um arquivo que contém funções para limpeza e processamento de dados de entrada do usuário.

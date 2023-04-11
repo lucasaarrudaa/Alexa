@@ -2,6 +2,7 @@ from googletrans import Translator
 import json
 
 class TradutorComandos:
+    
     def __init__(self, json_file):
         self.json_file = json_file
 
@@ -13,7 +14,7 @@ class TradutorComandos:
         # Traduzir os comandos e respostas para inglês
         tradutor = Translator()
         for comando in dados["comandos"]:
-            comando["comando"] = tradutor.translate(comando["comando"], src='pt', dest='en').text
+            comando["comando"] = tradutor.translate(comando["comando"], src='pt', dest='es').text
             comando["resposta"] = tradutor.translate(comando["resposta"], src='pt', dest='en').text
 
         # Salvar o resultado em um novo arquivo JSON

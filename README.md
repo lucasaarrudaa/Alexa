@@ -16,3 +16,11 @@ vocabulario/: Um diretório que contém arquivos relacionados ao vocabulário e 
   - commands_pt.json: Um arquivo JSON que contém os comandos de voz em português para o projeto.
   - commands_es.json: Um arquivo JSON que contém os comandos de voz em espanhol para o projeto.
   - tradutor.py: Um arquivo que contém funções para tradução de comandos de voz entre idiomas.
+
+- Tópico Principal
+  - Sub-tópico 1
+    - Sub-tópico 1.1
+    - Sub-tópico 1.2
+  - Sub-tópico 2
+    - Sub-tópico 2.1
+    - Sub-tópico 2.2

@@ -1,6 +1,7 @@
 from conexao_db import Conexao
 
 class VerificarDisponibilidadeQuarto(Conexao):
+    
     def verificar_disponibilidade(self):
         print('verificar_disponibilidade')
         query = "SELECT * FROM quartos WHERE disponivel = 'S'"

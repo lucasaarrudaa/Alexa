@@ -1,6 +1,7 @@
 import json
 
 class Ingles:
+    
     traducoes = {
         "Olá! Sou a Assistente Virtual. Posso te ajudar?": "Hello! I am the Virtual Assistant. How can I help you?",
         "Digite 'sim' para começar ou 'nao' para sair: ": "Type 'yes' to start or 'no' to exit: ",

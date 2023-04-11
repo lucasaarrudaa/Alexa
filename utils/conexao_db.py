@@ -1,6 +1,7 @@
 import mysql.connector
 
 class Conexao:
+    
     def __init__(self):
         print("conectando ao banco")
         self.conn = mysql.connector.connect(

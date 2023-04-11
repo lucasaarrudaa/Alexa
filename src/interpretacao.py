@@ -1,5 +1,4 @@
 import json
-
 class Interpretacao:
     """
     Classe responsável pela interpretação de comandos a partir de um arquivo JSON.

@@ -3,6 +3,7 @@ import datetime
 import threading
 
 class Limpeza(Conexao):
+    
     def __init__(self):
         super().__init__()  # Chama o construtor da classe Conexao
         self.connection = self.conn  # Atribui a conexão à variável connection

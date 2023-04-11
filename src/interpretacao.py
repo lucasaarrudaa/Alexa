@@ -1,6 +1,7 @@
 import json
 
 class Interpretacao:
+    
     def __init__(self, arquivo_json):
         self.comandos = []
         with open(arquivo_json, 'r') as arquivo:

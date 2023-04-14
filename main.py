@@ -1,48 +1,74 @@
 import subprocess
 import json
-from src.interpretacao import Interpretacao
-from idiomas.en import Ingles 
+from src.interpreter import Interpreter
+from languages.en import English
+from languages.es import Spanish
+from languages.pt import Portuguese
+from vocabulary.translate_commands import TranslateCommands
 
-class AssistenteVirtual:
-    
-    def __init__(self, idioma):
-        if idioma == 'en': 
-            self.idioma = 'en'
-            self.tradutor = Ingles()
-            self.arquivo_json = r'vocabulario\commands_en.json'
-            
-        elif idioma == 'pt':
-            self.idioma = 'pt'
-            # self.tradutor = Portugues()
-            self.arquivo_json = r'vocabulario\commands_pt.json'
+
+class VirtualAssistant:
+
+    def __init__(self, language):
+        if language == 'en':
+            self.language = 'en'
+            self.translator = English()
+            self.arquivo_json = r'vocabulary\commands_en.json'
+
+        elif language == 'pt':
+            self.language = 'pt'
+            self.translator = Portuguese()
+            TranslateCommands(
+                r'vocabulary\commands_en.json').translate_command('en', 'pt')
+
+            self.arquivo_json = r'vocabulary\commands_pt.json'
+
+        elif language == 'es':
+            self.language = 'es'
+            self.translator = Spanish()
+            TranslateCommands(
+                r'vocabulary\commands_en.json').translate_command('en', 'es')
+            self.arquivo_json = r'vocabulary\commands_es.json'
+
         else:
-            raise ValueError("Idioma não suportado.")
-            
-        self.interpretacao = Interpretacao(self.arquivo_json)
+            raise ValueError("language not supported.")
 
-    def iniciar(self):
-        print(self.tradutor.traduzir("Olá! Sou a Assistente Virtual. Posso te ajudar?"))
+        self.interpreter = Interpreter(self.arquivo_json)
+
+    def start(self):
+        print(self.translator("Hello! I'm the Virtual assistant. I can help you?"))
         while True:
-            resposta = input(self.tradutor.traduzir("Digite 'sim' para começar ou 'nao' para sair: "))
-            if resposta.lower() in ['sim', 'yes']:  
-                comando = input(self.tradutor.traduzir("Fale o seu comando: "))
-                resposta = self.interpretacao.interpretar_comando(comando)
-                print(self.tradutor.traduzir(resposta))
-                comando_info = self.interpretacao.get_comando_info(comando)
-                if comando_info and 'acao' in comando_info:
-                    acao = comando_info['acao']
-                    subprocess.run(["python", acao]) 
+            response = input(self.translator(
+                "Type 'yes' to start or 'no' to quit:"))
+            if response.lower() in ['sim', 'yes']:
+                command = input(self.translator("Speak your command:"))
+                response = self.interpreter.interpretar_command(command)
+                print(self.translator(response))
+                command_info = self.interpreter.get_command_info(command)
+                if command_info and 'action' in command_info:
+                    action = command_info['action']
+                    subprocess.run(["python", action])
             else:
-                print(self.tradutor.traduzir("Até mais!"))
+                print(self.translator("Até mais!"))
                 break
 
+<<<<<<< Updated upstream
 # Solicita ao usuário que escolha o idioma
+=======
+
+# Ask the user to choose the language
+>>>>>>> Stashed changes
 while True:
-    idioma = input("Escolha o idioma (en/pt): ")
-    if idioma in ['en', 'pt']:
+    language = input("Choose language (en/pt/es): ")
+    if language in ['en', 'pt']:
         break
     else:
-        print("Idioma inválido. Por favor, escolha 'en' para inglês ou 'pt' para português.")
+        print("invalid language. Please choose 'en' for English, 'pt' para Português, 'es' para Español")
 
+<<<<<<< Updated upstream
 assistente = AssistenteVirtual(idioma)
 assistente.iniciar()
+=======
+assistant = VirtualAssistant(language)
+assistant.start()
+>>>>>>> Stashed changes

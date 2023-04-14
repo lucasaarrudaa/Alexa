@@ -52,12 +52,8 @@ class VirtualAssistant:
                 print(self.translator("Até mais!"))
                 break
 
-<<<<<<< Updated upstream
-# Solicita ao usuário que escolha o idioma
-=======
 
 # Ask the user to choose the language
->>>>>>> Stashed changes
 while True:
     language = input("Choose language (en/pt/es): ")
     if language in ['en', 'pt']:
@@ -65,10 +61,5 @@ while True:
     else:
         print("invalid language. Please choose 'en' for English, 'pt' para Português, 'es' para Español")
 
-<<<<<<< Updated upstream
-assistente = AssistenteVirtual(idioma)
-assistente.iniciar()
-=======
 assistant = VirtualAssistant(language)
 assistant.start()
->>>>>>> Stashed changes

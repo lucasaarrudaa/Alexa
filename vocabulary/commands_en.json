@@ -1,0 +1,14 @@
+{
+    "commands": [
+        {
+            "command": "Start Clean",
+            "response": "Ok, I'll start cleaning.",
+            "action": "commands/clean_room.py"
+        },
+        {
+            "command": "Avaiable Rooms",
+            "response": "Ok, I'll check, the available rooms, a moment.",
+            "action": "commands/check_rooms.py"
+        }
+    ]
+}

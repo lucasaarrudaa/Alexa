@@ -36,7 +36,7 @@ class AssistenteVirtual:
                 print(self.tradutor.traduzir("Até mais!"))
                 break
 
-# Solicitar ao usuário que escolha o idioma
+# Solicita ao usuário que escolha o idioma
 while True:
     idioma = input("Escolha o idioma (en/pt): ")
     if idioma in ['en', 'pt']:
@@ -44,6 +44,5 @@ while True:
     else:
         print("Idioma inválido. Por favor, escolha 'en' para inglês ou 'pt' para português.")
 
-# Instanciar a Assistente Virtual com o idioma escolhido e iniciar a interação
 assistente = AssistenteVirtual(idioma)
 assistente.iniciar()
